@@ -8,6 +8,8 @@ import org.springframework.data.domain.Sort
 
 /*
 
+In the main method you can find an example of JooqPageableUtils usage.
+
 The DB that is used for this app contains only one table.
 Below you can see the DDL for the table:
 
@@ -22,7 +24,13 @@ CREATE TABLE "user" (
 fun main() {
     val dslContext = DSL.using("jdbc:postgresql://localhost:5432/<db_name>", "<user>", "<password>")
 
-    val pageable = PageRequest.of(0, 10, Sort.by(Sort.Direction.ASC, "created_on"));
+    val sort = Sort.by(
+        Sort.Order.asc("created_on"),
+        Sort.Order.asc("status"),
+        Sort.Order.desc("name")
+    )
+
+    val pageable = PageRequest.of(2, 10, sort);
 
     val select = dslContext.select()
         .from(Tables.USER)

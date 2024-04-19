@@ -62,7 +62,3 @@ jooq {
 test {
     useJUnitPlatform()
 }
-
-kotlin {
-    jvmToolchain(17)
-}

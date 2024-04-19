@@ -31,7 +31,7 @@ object JooqPageableUtils {
      * @return a list of jOOQ OrderField objects representing the ORDER BY clause.
      * @throws IllegalArgumentException if the sort property is unknown.
      */
-    fun orderByClause(pageable: Pageable, table: Table<*>): List<OrderField<*>> {
+    private fun orderByClause(pageable: Pageable, table: Table<*>): List<OrderField<*>> {
 
         return pageable.sort.map {
             val field = table.field(it.property)
