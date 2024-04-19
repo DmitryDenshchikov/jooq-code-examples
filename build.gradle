@@ -1,0 +1,68 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.9.21'
+    id "org.jooq.jooq-codegen-gradle" version "3.19.7"
+}
+
+group = 'denshchikov.dmitry'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    jooqVersion = "3.19.7"
+    springDataCommonsVersion = "3.2.5"
+    postgresqlVersion = "42.7.3"
+    logbackVersion = "1.5.5"
+}
+
+dependencies {
+    implementation("org.jooq:jooq:$jooqVersion")
+    implementation("org.jooq:jooq-meta:$jooqVersion")
+    implementation("org.jooq:jooq-codegen:$jooqVersion")
+
+    implementation("org.springframework.data:spring-data-commons:$springDataCommonsVersion")
+    implementation("org.postgresql:postgresql:$postgresqlVersion")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+
+    jooqCodegen("org.postgresql:postgresql:$postgresqlVersion")
+
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+jooq {
+    configuration {
+
+        jdbc {
+            driver = "org.postgresql.Driver"
+            url = "jdbc:postgresql://localhost:5432/<db_name>"
+            user = "<user>"
+            password = "<password>"
+        }
+
+        generator {
+            database {
+                name = "org.jooq.meta.postgres.PostgresDatabase"
+                inputSchema = "public"
+            }
+
+            generate {
+                pojos = true
+            }
+
+            target {
+                packageName = "jooq.generated"
+                directory = "src/main/java"
+            }
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+kotlin {
+    jvmToolchain(17)
+}
