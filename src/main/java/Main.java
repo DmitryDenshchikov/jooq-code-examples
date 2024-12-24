@@ -30,8 +30,7 @@ CREATE TABLE "user" (
 public class Main {
 
   public static void main(String[] args) {
-    DSLContext dslContext =
-        DSL.using("jdbc:postgresql://localhost:5432/<db_name>", "<user>", "<password>");
+    DSLContext dslContext = DSL.using("jdbc:postgresql://localhost:5432/my_db", "test", "test");
 
     Sort sort = Sort.by(asc("created_on"), asc("status"), desc("name"));
     PageRequest pageable = PageRequest.of(2, 10, sort);

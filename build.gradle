@@ -36,9 +36,9 @@ jooq {
 
         jdbc {
             driver = "org.postgresql.Driver"
-            url = "jdbc:postgresql://localhost:5432/<db_name>"
-            user = "<user>"
-            password = "<password>"
+            url = "jdbc:postgresql://localhost:5432/my_db"
+            user = "test"
+            password = "test"
         }
 
         generator {

@@ -22,7 +22,7 @@ CREATE TABLE "user" (
 
  */
 fun main() {
-    val dslContext = DSL.using("jdbc:postgresql://localhost:5432/<db_name>", "<user>", "<password>")
+    val dslContext = DSL.using("jdbc:postgresql://localhost:5432/my_db", "test", "test")
 
     val sort = Sort.by(
         Sort.Order.asc("created_on"),
