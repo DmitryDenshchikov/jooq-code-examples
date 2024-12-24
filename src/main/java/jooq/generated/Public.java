@@ -7,6 +7,7 @@ package jooq.generated;
 import java.util.Arrays;
 import java.util.List;
 
+import jooq.generated.tables.Article;
 import jooq.generated.tables.User;
 
 import org.jooq.Catalog;
@@ -26,6 +27,11 @@ public class Public extends SchemaImpl {
      * The reference instance of <code>public</code>
      */
     public static final Public PUBLIC = new Public();
+
+    /**
+     * The table <code>public.article</code>.
+     */
+    public final Article ARTICLE = Article.ARTICLE;
 
     /**
      * The table <code>public.user</code>.
@@ -48,6 +54,7 @@ public class Public extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
+            Article.ARTICLE,
             User.USER
         );
     }
