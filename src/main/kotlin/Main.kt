@@ -14,7 +14,7 @@ The DB that is used for this app contains only one table.
 Below you can see the DDL for the table:
 
 CREATE TABLE "user" (
-   id uuid NOT NULL PRIMARY KEY,
+    id uuid NOT NULL PRIMARY KEY,
    "name" varchar NOT NULL,
    status varchar NOT NULL,
    created_on timestamp NOT NULL

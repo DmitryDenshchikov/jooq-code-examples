@@ -4,7 +4,6 @@
 package jooq.generated;
 
 
-import jooq.generated.tables.Article;
 import jooq.generated.tables.User;
 
 
@@ -13,11 +12,6 @@ import jooq.generated.tables.User;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
-
-    /**
-     * The table <code>public.article</code>.
-     */
-    public static final Article ARTICLE = Article.ARTICLE;
 
     /**
      * The table <code>public.user</code>.

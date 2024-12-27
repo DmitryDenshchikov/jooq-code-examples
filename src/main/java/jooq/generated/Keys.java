@@ -4,9 +4,7 @@
 package jooq.generated;
 
 
-import jooq.generated.tables.Article;
 import jooq.generated.tables.User;
-import jooq.generated.tables.records.ArticleRecord;
 import jooq.generated.tables.records.UserRecord;
 
 import org.jooq.TableField;
@@ -26,6 +24,5 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<ArticleRecord> ARTICLE_PKEY = Internal.createUniqueKey(Article.ARTICLE, DSL.name("article_pkey"), new TableField[] { Article.ARTICLE.ID }, true);
     public static final UniqueKey<UserRecord> USER_PKEY = Internal.createUniqueKey(User.USER, DSL.name("user_pkey"), new TableField[] { User.USER.ID }, true);
 }
